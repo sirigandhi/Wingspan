@@ -25,6 +25,21 @@
   --bs-border-color: #495057;
 }
 
+/* Prevent the white flash by locking the root and body backgrounds */
+[data-bs-theme="dark"],
+[data-bs-theme="dark"] body {
+  background-color: #1a252f !important;
+}
+
+/* Ensure the docs container itself doesn't have a background-color transition 
+   that might cause a lag in color application */
+[data-bs-theme="dark"] #docsView,
+[data-bs-theme="dark"] #docsContent,
+[data-bs-theme="dark"] #docsMarkdownBody {
+  background-color: #1a252f !important;
+  transition: none !important; /* Remove transitions to keep it instant */
+}
+
 /* 2. UNIVERSAL BACKGROUND & TEXT OVERRIDES */
 /* Forces hardcoded 'bg-white' and 'bg-light' elements to turn dark */
 [data-bs-theme="dark"] .bg-white,
@@ -98,27 +113,7 @@
   filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-/* 5. COVERAGE DASHBOARD FIXES (TABLES) */
-[data-bs-theme="dark"] .table {
-  color: var(--bs-body-color) !important;
-  border-color: var(--bs-border-color) !important;
-}
 
-/* Fixes the header columns */
-[data-bs-theme="dark"] .table-light,
-[data-bs-theme="dark"] .table-light th,
-[data-bs-theme="dark"] .table-light td {
-  background-color: #212529 !important;
-  color: #f8f9fa !important;
-  border-color: #495057 !important;
-}
-
-/* Fixes the actual data rows */
-[data-bs-theme="dark"] .coverage-row-sync td,
-[data-bs-theme="dark"] .coverage-row-sync th {
-  background-color: var(--bs-light) !important;
-  border-color: var(--bs-border-color) !important;
-}
 
 /* 6. TAG CHIPS AND UPLOAD MODAL FIXES */
 [data-bs-theme="dark"] .tag-chip {
@@ -276,41 +271,11 @@
 
 
 /* =========================================
-   DOCS SIDEBAR (DARK MODE)
-   ========================================= */
-[data-bs-theme="dark"] .docs-sidebar {
-  background: #1f2937 !important; /* Premium dark slate background */
-  border-left: 4px solid #0399b0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-[data-bs-theme="dark"] .docs-sidebar-title {
-  color: #0399b0 !important;
-}
-
-[data-bs-theme="dark"] .docs-nav-btn {
-  color: #9ca3af !important; /* Soft grey text */
-}
-
-[data-bs-theme="dark"] .docs-nav-btn:hover {
-  background: #374151 !important; /* Lighter slate hover */
-  color: #ffffff !important;
-}
-
-[data-bs-theme="dark"] .docs-nav-btn.active {
-  background: #111827 !important; /* Deep contrast for active */
-  color: #0399b0 !important;
-  font-weight: bold;
-  border: 1px solid rgba(3, 153, 176, 0.3);
-}
-
-/* =========================================
    CUSTOM FOOTER (DARK MODE)
    ========================================= */
 [data-bs-theme="dark"] .custom-footer {
-  background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+  background: #111827 !important; /* Replaced gradient with solid deep slate */
 }
-
 [data-bs-theme="dark"] .custom-footer .footer-brand {
   background: none !important;
   -webkit-text-fill-color: #ffffff !important;
@@ -329,6 +294,7 @@
 
 [data-bs-theme="dark"] .custom-footer .footer-photo-box {
   background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid #34495e !important;
 }
 
 [data-bs-theme="dark"] .custom-footer .footer-bottom-bar {
@@ -355,4 +321,812 @@
 [data-bs-theme="dark"] #logoutLink:hover {
   background-color: rgba(220, 53, 69, 0.15) !important;
   color: #dc3545 !important;
+}
+
+/* =========================================
+   SPECIES VIEW COLORS (DARK MODE)
+   ========================================= */
+
+[data-bs-theme="dark"] #speciesName {
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .species-edit-box {
+  background-color: #2c3238 !important; 
+  border-color: #0399b0 !important;
+}
+
+[data-bs-theme="dark"] .species-edit-link {
+  color: #0399b0 !important; 
+}
+
+[data-bs-theme="dark"] .species-edit-link:hover {
+  color: #027e91 !important; 
+}
+
+[data-bs-theme="dark"] .species-filter-box {
+  background-color: #212529 !important; 
+  border-color: #34495e !important; 
+}
+
+[data-bs-theme="dark"] .filter-pill.btn-outline-secondary {
+  color: #ecf0f1 !important; /* Bright off-white text */
+  border-color: #495057 !important; /* Crisp slate border */
+  background-color: transparent !important;
+}
+
+[data-bs-theme="dark"] .filter-pill.btn-outline-secondary:hover {
+  background-color: #34495e !important; /* Fills in with slate when hovering */
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .filter-pill.btn-primary.active {
+  background-color: #0399b0 !important; /* Solid Wingspan Teal when selected */
+  border-color: #0399b0 !important;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+/* =========================================
+   SPECIES VIEW: HERO TAGS & ICONS (DARK MODE)
+   ========================================= */
+
+[data-bs-theme="dark"] #heroImageTags .badge {
+  background-color: #34495e !important; /* Permanently filled with the slate color */
+  color: #ffffff !important; /* Bright white text */
+  border: 1px solid #495057 !important; /* Crisp slate border */
+  pointer-events: none; 
+}
+
+[data-bs-theme="dark"] #editSpeciesBtn {
+  color: #0399b0 !important; 
+  border-color: #495057 !important; 
+}
+
+[data-bs-theme="dark"] #editSpeciesBtn:hover {
+  color: #ffffff !important; 
+  background-color: #0399b0 !important; 
+  border-color: #0399b0 !important;
+}
+
+[data-bs-theme="dark"] .modal-image .modal-content {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Make "Add Another Attribute" button visible in dark mode */
+[data-bs-theme="dark"] #addNewSpeciesFieldBtn {
+  color: #ecf0f1 !important; /* Bright off-white text */
+  border-color: #6c757d !important; /* Visible gray border */
+  background-color: transparent !important;
+}
+
+[data-bs-theme="dark"] #addNewSpeciesFieldBtn:hover {
+  background-color: #34495e !important; /* Slate fill on hover */
+  color: #ffffff !important;
+  border-color: #495057 !important;
+}
+
+[data-bs-theme="dark"] #imageDownloadOptions .text-muted {
+  color: #9ca3af !important; /* Muted gray so the white title pops */
+}
+
+[data-bs-theme="dark"] #imageDetailsModal .btn-icon-only:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important; 
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] #modalTags .badge {
+  background-color: #34495e !important; /* Slate fill */
+  color: #ffffff !important; /* Bright white text */
+  border: 1px solid #495057 !important; /* Slate border */
+}
+
+/* Custom 'X' clear button brightness fix */
+[data-bs-theme="dark"] #searchInput::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #adminTeamSearch::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #adminUserSearch::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #coverageTagPickerSearch::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #searchSpeciesInput::-webkit-search-cancel-button {
+  filter: brightness(1.5);
+}
+
+/* Force "Create New Species" to always stay Wingspan Green in both modes */
+.dropdown-item[data-value="NEW"] span,
+[data-bs-theme="dark"] .dropdown-item[data-value="NEW"] span {
+  color: #1abc9c !important; 
+}
+
+[data-bs-theme="dark"] #searchInput::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #adminTeamSearch::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #adminUserSearch::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #coverageTagPickerSearch::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #searchSpeciesInput::-webkit-search-cancel-button,
+[data-bs-theme="dark"] #tagPickerSearch::-webkit-search-cancel-button { 
+  filter: brightness(1.5);
+}
+
+[data-bs-theme="dark"] .tag-chip:hover {
+  background-color: #495057 !important;
+  border-color: #1abc9c !important; 
+  color: white !important;
+}
+
+
+
+/* =========================================
+   ADMIN TEAMS DASHBOARD (DARK MODE)
+   ========================================= */
+[data-bs-theme="dark"] .team-member-pill {
+  background-color: #34495e !important;
+  color: #ffffff !important;
+  border-color: #495057 !important;
+}
+[data-bs-theme="dark"] .team-member-remove {
+  color: #9ca3af !important;
+}
+[data-bs-theme="dark"] .team-member-remove:hover {
+  color: #ff6b6b !important;
+}
+[data-bs-theme="dark"] .api-key-box {
+  background-color: #212529 !important;
+  border-color: #495057 !important;
+}
+[data-bs-theme="dark"] .api-key-text {
+  color: #ecf0f1 !important;
+}
+[data-bs-theme="dark"] .api-status-badge.active {
+  background-color: rgba(6, 95, 70, 0.4) !important;
+  color: #34d399 !important;
+  border: 1px solid #059669 !important;
+}
+[data-bs-theme="dark"] .api-status-badge.inactive {
+  background-color: rgba(146, 64, 14, 0.4) !important;
+  color: #fbbf24 !important;
+  border: 1px solid #d97706 !important;
+}
+
+/* Global Icon Button Fixes for Dark Mode */
+[data-bs-theme="dark"] .btn-icon-only {
+  color: #adb5bd !important;
+}
+[data-bs-theme="dark"] .btn-icon-only:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+[data-bs-theme="dark"] .btn-icon-only.delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+  color: #ff6b6b !important;
+}
+
+/* =========================================
+   IMAGE COVERAGE DASHBOARD (DARK MODE)
+   ========================================= */
+
+/* Main Header */
+[data-bs-theme="dark"] #coverageHeader {
+  background-color: #34495e !important; /* Matches other modes, replacing the bright green */
+  border-bottom: 1px solid #495057 !important;
+}
+
+[data-bs-theme="dark"] #coverageHeader .navbar-brand {
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] #coverageHeader .form-check-label {
+  color: #adb5bd !important; /* Muted light color */
+}
+
+/* Header Search Input & Icons */
+[data-bs-theme="dark"] #coverageHeader .input-group-text {
+  background-color: #2c3e50 !important; /* Magnifying glass area */
+  color: #adb5bd !important;
+  border-color: #495057 !important;
+}
+
+[data-bs-theme="dark"] #coverageSearchInput {
+  background-color: #1a252f !important; /* Very dark slate for input */
+  color: #ffffff !important;
+  border-color: #495057 !important;
+}
+
+[data-bs-theme="dark"] #coverageSearchInput::placeholder {
+  color: #6c757d !important;
+}
+
+[data-bs-theme="dark"] #coverageHeader #userIconButton {
+  color: #ffffff !important;
+}
+
+/* Main Map Background & Text */
+[data-bs-theme="dark"] #coveragePage {
+  background-color: #1a252f !important; /* Very Dark Slate */
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] #coveragePage h6 {
+  color: #ffffff !important;
+}
+
+/* Coverage Legend */
+[data-bs-theme="dark"] #coverageLegend {
+  background-color: #212529 !important; /* Dark background for legend, replacing the white */
+  color: #ffffff !important;
+  border-color: #495057 !important;
+}
+
+[data-bs-theme="dark"] #legendContainer, 
+[data-bs-theme="dark"] #legendContainer .legend-item span {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   IMAGE DETAILS MODAL FIXES (DARK MODE)
+   ========================================= */
+/* Force headers, titles, and standard text to bright white */
+[data-bs-theme="dark"] #imageDetailsModal .modal-title,
+[data-bs-theme="dark"] #imageDetailsModal h4,
+[data-bs-theme="dark"] #imageDetailsModal h5,
+[data-bs-theme="dark"] #imageDetailsModal h6,
+[data-bs-theme="dark"] #imageDetailsModal p {
+  color: #ffffff !important;
+}
+
+/* Force notes (often styled as text-muted) to be a brilliant white */
+[data-bs-theme="dark"] #imageDetailsModal .text-muted,
+[data-bs-theme="dark"] #imageDetailsModal .form-text {
+  color: #f8f9fa !important; 
+}
+
+/* Force tags inside the details modal to have bright white text */
+[data-bs-theme="dark"] #imageDetailsModal .badge,
+[data-bs-theme="dark"] #imageDetailsModal .tag-chip {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   ADMIN PAGES BACKGROUND (DARK MODE)
+   ========================================= */
+/* 1. Match the absolute background of the admin section to the footer */
+[data-bs-theme="dark"] #teamView {
+  background-color: #111827 !important;
+}
+
+/* 2. Main wrapper containers (Tags, Users, Attributes tabs) */
+[data-bs-theme="dark"] #teamView .bg-white {
+  background-color: #111827 !important; 
+  border-color: #1f2937 !important; 
+}
+
+/* 3. Team Cards, Sidebars, and List Items (Slightly lighter so they pop) */
+[data-bs-theme="dark"] #teamView .card,
+[data-bs-theme="dark"] #teamView .bg-light,
+[data-bs-theme="dark"] #teamView .list-group-item {
+  background-color: #1f2937 !important; 
+  border-color: #374151 !important;
+  color: #ffffff !important; /* Fixes the dark text on the list items */
+}
+
+/* 4. Keep the table headers aligned with the inner containers */
+[data-bs-theme="dark"] #teamView .table-light th,
+[data-bs-theme="dark"] #teamView .table-light td {
+  background-color: #1f2937 !important; 
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+/* =========================================
+   SPECIES ATTRIBUTES (DARK MODE)
+   ========================================= */
+/* Match the attribute cards to the inner container color */
+[data-bs-theme="dark"] #adminAttributesGrid .card {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+/* Force the attribute name text to be brilliant white */
+[data-bs-theme="dark"] #adminAttributesGrid .card-body span.fw-bold {
+  color: #ffffff !important; 
+}
+
+/* Optional: Make the delete trash can pop a bit more in dark mode */
+[data-bs-theme="dark"] #adminAttributesGrid .btn-outline-danger {
+  color: #ff6b6b !important; 
+  border-color: transparent !important;
+}
+
+[data-bs-theme="dark"] #adminAttributesGrid .btn-outline-danger:hover {
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+/* =========================================
+   IMAGE COVERAGE DASHBOARD (DARK MODE)
+   ========================================= */
+/* Style the main text area and the tag grid containers */
+[data-bs-theme="dark"] #speciesCoverageInput,
+[data-bs-theme="dark"] #coverageFullTagGrid .bg-white {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+/* Make the specific tags and chips brighter */
+[data-bs-theme="dark"] .tag-chip-item .tag-chip {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+  border-color: #4b5563 !important;
+}
+
+
+/* Seamless Coverage Table styling */
+[data-bs-theme="dark"] #coverageResultsSection .table,
+[data-bs-theme="dark"] .coverage-row-sync td,
+[data-bs-theme="dark"] .coverage-row-sync-head th {
+  background-color: #111827 !important; /* Deepest slate for the table body */
+  color: #ffffff !important; 
+  border-color: #374151 !important;
+}
+
+/* =========================================
+   ADMIN COVERAGE TAGS (DARK MODE SYNC)
+   ========================================= */
+
+/* 1. Base style for tags in the dashboard and modal grid */
+[data-bs-theme="dark"] #coverageSelectedTagsDisplay .tag-chip,
+[data-bs-theme="dark"] #coverageFullTagGrid .tag-chip {
+  background-color: #374151 !important; /* Deep slate background */
+  color: #ffffff !important;           /* Brilliant white text */
+  border: 1px solid #4b5563 !important; /* Subtle visible border */
+  transition: all 0.2s ease-in-out;
+}
+
+/* 2. Hover effect for interactive tags */
+[data-bs-theme="dark"] #coverageFullTagGrid .tag-chip:hover {
+  background-color: #4b5563 !important;
+  border-color: #0399b0 !important; /* Highlight with Wingspan Teal */
+  color: #ffffff !important;
+}
+
+
+
+/* 4. Fix for the 'X' remove icon on dashboard tags */
+[data-bs-theme="dark"] .coverage-tag-remove {
+  color: #adb5bd !important; /* Soft grey by default */
+  margin-left: 6px;
+  opacity: 0.7;
+}
+
+[data-bs-theme="dark"] .coverage-tag-remove:hover {
+  color: #ff6b6b !important; /* Changes to red when hovering to delete */
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* 5. Placeholder text fix for the empty tag display */
+[data-bs-theme="dark"] #coverageSelectedTagsDisplay .text-muted.italic {
+  color: #6c757d !important;
+  font-style: italic;
+}
+
+/* =========================================
+   ADMIN COVERAGE SYNC (DARK MODE)
+   ========================================= */
+[data-bs-theme="dark"] .bg-admin-custom,
+[data-bs-theme="dark"] #coverageDashboard {
+  background-color: #111827 !important; /* Matches footer and teamView */
+}
+
+/* Sync the internal containers and tag display boxes */
+[data-bs-theme="dark"] #coverageDashboard .bg-white,
+[data-bs-theme="dark"] #coverageSelectedTagsDisplay,
+[data-bs-theme="dark"] #coverageResultsSection .shadow-sm {
+  background-color: #1f2937 !important; /* Slightly lighter slate for contrast */
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+/* Ensure the sticky table headers match the new dark theme */
+[data-bs-theme="dark"] #coverageResultsSection .table-light,
+[data-bs-theme="dark"] #fixedTableHead th,
+[data-bs-theme="dark"] #scrollTableHead th {
+  background-color: #1f2937 !important;
+  color: #0399b0 !important; /* Wingspan Teal for headers */
+  border-color: #374151 !important;
+}
+
+
+
+/* =========================================
+   UNIVERSAL TAG DISPLAY (DARK MODE)
+   ========================================= */
+[data-bs-theme="dark"] #selectedTagsSummary .badge,
+[data-bs-theme="dark"] #detailsSelectedTagsSummary .badge,
+[data-bs-theme="dark"] #coverageSelectedTagsDisplay .badge,
+[data-bs-theme="dark"] #modalTags .badge {
+  background-color: #0399b0 !important; 
+  color: #ffffff !important;           
+  border-color: #0399b0 !important;
+  box-shadow: 0 0 8px rgba(3, 153, 176, 0.4) !important; /* Premium dark mode glow */
+}
+
+/* Ensure the empty state text is visible */
+[data-bs-theme="dark"] #selectedTagsSummary .text-muted,
+[data-bs-theme="dark"] #detailsSelectedTagsSummary .text-muted,
+[data-bs-theme="dark"] #coverageSelectedTagsDisplay .text-muted {
+  color: #adb5bd !important;
+}
+
+/* Keep the 'X' button visible in the coverage panel */
+[data-bs-theme="dark"] .coverage-tag-remove {
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+[data-bs-theme="dark"] .coverage-tag-remove:hover {
+  color: #ff6b6b !important;
+  opacity: 1;
+}
+
+/* Unify Grid Tag Checkboxes - Enforce one clear style with ID specificity! */
+[data-bs-theme="dark"] .tag-chip-checkbox:checked + .tag-chip,
+[data-bs-theme="dark"] #fullTagGrid .tag-chip-checkbox:checked + .tag-chip,
+[data-bs-theme="dark"] #coverageFullTagGrid .tag-chip-checkbox:checked + .tag-chip {
+  background-color: #0399b0 !important; /* Solid Wingspan Teal */
+  color: #ffffff !important;
+  border-color: #0399b0 !important;
+  box-shadow: 0 0 12px rgba(3, 153, 176, 0.5) !important; /* Stronger glow to stand out */
+}
+
+/* ===================================
+   ADMIN USERS TABLE (SOFT DARK MODE)
+   =================================== */
+[data-bs-theme="dark"] .table {
+  --bs-table-bg: var(--card-bg);
+  --bs-table-color: var(--card-text);
+  --bs-table-border-color: var(--card-border); 
+  --bs-table-hover-bg: rgba(255, 255, 255, 0.05);
+  --bs-table-hover-color: var(--card-text);
+  border-color: var(--card-border) !important;
+}
+
+[data-bs-theme="dark"] .table thead th,
+[data-bs-theme="dark"] .table-light th {
+  background-color: var(--bs-body-bg) !important;
+  color: #adb5bd !important;
+  border-bottom: 2px solid var(--card-border) !important;
+  border-top: none !important;
+}
+
+[data-bs-theme="dark"] .table .collapse td,
+[data-bs-theme="dark"] .table .collapsing td {
+  background-color: rgba(0, 0, 0, 0.15) !important; 
+  border-bottom: 1px solid var(--card-border) !important;
+}
+
+[data-bs-theme="dark"] .table .collapse hr,
+[data-bs-theme="dark"] .table .collapse .border-bottom,
+[data-bs-theme="dark"] .table .collapse .border-light {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  border-bottom: none !important;
+  opacity: 0 !important;
+}
+
+/* =========================================
+   ADMIN TAGS DASHBOARD (DARK MODE)
+   ========================================= */
+
+/* 1. The Individual Tags in the Grid */
+[data-bs-theme="dark"] #activeTagsGrid .btn-white {
+  background-color: var(--tag-bg) !important;
+  color: var(--tag-text) !important;
+  border-color: var(--card-border) !important;
+}
+
+[data-bs-theme="dark"] #activeTagsGrid .btn-white:hover {
+  background-color: var(--card-border) !important;
+}
+
+/* Soften the red 'X' delete icon so it doesn't vibrate on dark backgrounds */
+[data-bs-theme="dark"] #activeTagsGrid .text-danger {
+  color: #ff6b6b !important; 
+}
+
+/* 2. The (+) Add New Category Button in the Sidebar */
+[data-bs-theme="dark"] button[onclick*="promptNewCategory"] {
+  color: #0399b0 !important;
+  border-color: #0399b0 !important;
+  background-color: transparent !important;
+}
+
+[data-bs-theme="dark"] button[onclick*="promptNewCategory"]:hover {
+  background-color: #0399b0 !important;
+  color: #ffffff !important;
+}
+
+/* 3. The Categories Sidebar List (In case it's rendering bright white!) */
+[data-bs-theme="dark"] #adminTagCategoryList .list-group-item {
+  background-color: var(--card-bg) !important;
+  color: var(--card-text) !important;
+  border-color: var(--card-border) !important;
+}
+
+[data-bs-theme="dark"] #adminTagCategoryList .list-group-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-bs-theme="dark"] #adminTagCategoryList .badge {
+  background-color: #0399b0 !important; 
+  color: #ffffff !important;
+}
+
+/* 4. The Input Field and (+ Add) Tag Button at the bottom */
+[data-bs-theme="dark"] #adminNewTagName {
+  background-color: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+
+[data-bs-theme="dark"] #adminAddTagSubmit {
+  background-color: #0399b0 !important;
+  border-color: #0399b0 !important;
+  color: #ffffff !important;
+}
+
+
+/* =========================================
+   IMAGE DETAILS MODAL (DARK MODE)
+   ========================================= */
+/* 1. Lighten the subtitle, notes description, and image resolutions */
+[data-bs-theme="dark"] #imageDetailsModal .text-muted,
+[data-bs-theme="dark"] #imageDetailsModal .text-secondary {
+  color: #adb5bd !important; 
+}
+
+/* 2. Catch the dynamically generated resolution text inside the download options */
+[data-bs-theme="dark"] #imageDownloadOptions span,
+[data-bs-theme="dark"] #imageDownloadOptions small {
+  color: #adb5bd !important;
+}
+
+/* 3. Fix the "Notes" and "Tags" headers if they are stuck using .text-dark */
+[data-bs-theme="dark"] #imageDetailsModal .text-dark {
+  color: var(--card-text) !important;
+}
+
+/* =========================================
+   STUDENT DASHBOARD (DARK MODE)
+   ========================================= */
+
+/* 1. API Key Box - Give it a soft, inset look so it sits nicely inside the card */
+[data-bs-theme="dark"] .api-key-box {
+  background-color: rgba(0, 0, 0, 0.15) !important; 
+  border-color: var(--card-border) !important;
+}
+
+/* Lighten the actual API key string so it's readable */
+[data-bs-theme="dark"] .api-key-text {
+  color: #e2e8f0 !important; 
+}
+
+/* 2. Teammate Pills - Map these directly to your custom tag variables */
+[data-bs-theme="dark"] .team-member-pill {
+  background-color: var(--tag-bg) !important;
+  color: var(--tag-text) !important;
+  border-color: var(--card-border) !important;
+}
+
+[data-bs-theme="dark"] .team-member-pill .team-member-remove {
+  color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .team-member-pill .team-member-remove:hover {
+  color: #ff6b6b !important;
+}
+
+/* 3. Reveal/Copy Key Buttons - Sync them with the dark card aesthetic */
+[data-bs-theme="dark"] #revealKeyBtn,
+[data-bs-theme="dark"] #copyKeyBtn {
+  color: #e2e8f0 !important;
+  border-color: var(--card-border) !important;
+  background-color: var(--tag-bg) !important;
+}
+
+[data-bs-theme="dark"] #revealKeyBtn:hover,
+[data-bs-theme="dark"] #copyKeyBtn:hover {
+  background-color: var(--card-border) !important;
+  color: #ffffff !important;
+}
+
+/* 4. Edit Profile Form - Fix the dark text and white inputs */
+[data-bs-theme="dark"] #studentTeamContent .text-muted {
+  color: #adb5bd !important; /* Fixes "First Name", "Email", etc. labels */
+}
+
+[data-bs-theme="dark"] #studentTeamContent .form-control {
+  background-color: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+
+/* Force the student dashboard form to obey dark mode */
+[data-bs-theme="dark"] #studentTeamDynamicContent .bg-white,
+[data-bs-theme="dark"] #studentTeamDynamicContent .bg-light {
+  background-color: var(--card-bg) !important;
+}
+
+[data-bs-theme="dark"] #studentTeamDynamicContent .text-dark,
+[data-bs-theme="dark"] #studentTeamDynamicContent .text-muted {
+  color: #adb5bd !important; 
+}
+
+[data-bs-theme="dark"] #studentTeamDynamicContent .form-control {
+  background-color: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+
+/* Sync the left profile sidebar with the dark theme */
+[data-bs-theme="dark"] #studentTeamDynamicContent .student-sidebar {
+  background-color: #1a252f !important; /* Deep slate background to match */
+  border-right-color: var(--card-border) !important; /* Sync border color */
+}
+
+/* Force the profile name to be brilliant white instead of muted */
+[data-bs-theme="dark"] #studentTeamDynamicContent .student-sidebar h4.text-dark {
+  color: #ffffff !important;
+}
+
+/* =========================================
+   DOCS MARKDOWN TYPOGRAPHY (DARK MODE)
+   ========================================= */
+/* Headers & Text */
+[data-bs-theme="dark"] #docsMarkdownBody h1,
+[data-bs-theme="dark"] #docsMarkdownBody h2,
+[data-bs-theme="dark"] #docsMarkdownBody h3 {
+  color: #ffffff !important;
+  border-bottom-color: #374151 !important; 
+}
+[data-bs-theme="dark"] #docsMarkdownBody p,
+[data-bs-theme="dark"] #docsMarkdownBody li {
+  color: #e2e8f0 !important;
+}
+
+/* Links */
+[data-bs-theme="dark"] #docsMarkdownBody a {
+  color: #0399b0 !important;
+}
+[data-bs-theme="dark"] #docsMarkdownBody a:hover {
+  color: #027a8d !important;
+}
+
+/* Inline Code (e.g., `mediumUrl`) */
+[data-bs-theme="dark"] #docsMarkdownBody code {
+  background-color: #212529 !important;
+  color: #1abc9c !important; /* Bright teal for visibility */
+  border: 1px solid #495057 !important;
+}
+
+/* Code Blocks */
+[data-bs-theme="dark"] #docsMarkdownBody pre {
+  background-color: #111827 !important; /* Deepest slate */
+  border: 1px solid #374151 !important;
+}
+[data-bs-theme="dark"] #docsMarkdownBody pre code {
+  background-color: transparent !important;
+  border: none !important;
+  color: #e2e8f0 !important;
+}
+
+/* Blockquotes (Warnings/Notes) */
+[data-bs-theme="dark"] #docsMarkdownBody blockquote {
+  background-color: rgba(3, 153, 176, 0.1) !important;
+  border-left: 4px solid #0399b0 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Tables */
+[data-bs-theme="dark"] #docsMarkdownBody table {
+  color: #e2e8f0 !important;
+}
+[data-bs-theme="dark"] #docsMarkdownBody th {
+  background-color: #1a252f !important;
+  color: #0399b0 !important;
+  border: 1px solid #374151 !important;
+}
+[data-bs-theme="dark"] #docsMarkdownBody td {
+  background-color: #1f2937 !important;
+  border: 1px solid #374151 !important;
+}
+[data-bs-theme="dark"] #docsMarkdownBody tr:nth-child(even) td {
+  background-color: #111827 !important; /* Alternating row color */
+}
+
+/* =========================================
+   DOCS VIEW STABILITY (DARK MODE)
+   ========================================= */
+
+/* Pins the background to the entire view so white never flashes */
+[data-bs-theme="dark"] #docsView,
+[data-bs-theme="dark"] #docsContent {
+  background-color: #1a252f !important;
+}
+
+/* Ensures the text area never collapses to zero height while loading */
+[data-bs-theme="dark"] #docsMarkdownBody {
+  background-color: #1a252f !important;
+  min-height: 70vh; 
+  border-radius: 8px;
+}
+
+/* =========================================
+   DOCS VIEW: SEAMLESS BACKGROUND SYNC
+   ========================================= */
+
+/* Matches the docs background exactly to the footer color */
+[data-bs-theme="dark"] #docsView,
+[data-bs-theme="dark"] #docsContent,
+[data-bs-theme="dark"] #docsMarkdownBody {
+  background-color: #111827 !important; /* Matches footer */
+  transition: none !important;
+}
+
+/* =========================================
+   DOCS SIDEBAR (DARK MODE)
+   ========================================= */
+
+[data-bs-theme="dark"] .docs-sidebar {
+  background-color: #1f2937 !important; /* Match card backgrounds */
+  border-left: 4px solid #0399b0 !important; /* Keep Wingspan Teal accent */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-bs-theme="dark"] .docs-sidebar-title {
+  color: #0399b0 !important; /* Signature teal title */
+}
+
+/* Sidebar Buttons */
+[data-bs-theme="dark"] .docs-nav-btn {
+  color: #adb5bd !important; /* Soft grey text */
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+[data-bs-theme="dark"] .docs-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+}
+
+/* Active Section Styling */
+[data-bs-theme="dark"] .docs-nav-btn.active {
+  background-color: rgba(3, 153, 176, 0.15) !important; /* Subtle teal glow */
+  color: #0399b0 !important;
+  font-weight: bold;
+}
+
+/* =========================================
+   STUDENT DASHBOARD: HEADER & API KEY TWEAKS
+   ========================================= */
+
+/* 1. Force Team Info, Members, and API Key headers to White */
+[data-bs-theme="dark"] #studentTeamDynamicContent h6.text-dark {
+  color: #ffffff !important;
+  border-bottom-color: #495057 !important; /* Subtle divider for headers */
+}
+
+[data-bs-theme="dark"] .api-key-box {
+  background-color: #435263 !important; /* Significantly lighter than the card */
+  border: 1px solid #566575 !important; /* Defined border to match the light mode feel */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+}
+
+/* Brighten the internal divider to keep it visible */
+[data-bs-theme="dark"] .api-key-box .border-bottom {
+  border-color: #566575 !important;
+}
+
+/* Ensure the status badge and expiration text sit cleanly on the lighter background */
+[data-bs-theme="dark"] .api-key-box .text-muted {
+  color: #c1c9d2 !important; /* Slightly brighter muted text */
 }
