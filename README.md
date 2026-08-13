@@ -9,30 +9,24 @@ Backend Team: Abby Van Der Brink & Taylor Bauer
 Frontend Team: Siri Gandhi & Lexi Pachonphai
 
 ## Project Overview
+Wingspan is a centralized image library and REST API built for Reiman Gardens at Iowa State
+University. Each semester, senior design and capstone teams are given projects that involve
+building applications using Reiman Gardens' butterfly and insect photo collection. Without a
+centralized system, each team rebuilds image storage from scratch, manually updates photos
+when content changes, and duplicates files across multiple projects, resulting in unnecessary
+storage costs and inconsistent content.
 
+Wingspan solves this by providing a single hosted platform where Nathan Brockman at Reiman
+Gardens uploads and manages butterfly and insect photos through an admin dashboard. Student
+teams access that content through API keys tied to their project and semester.
 
+## Access
+Wingspan is up at http://159.203.134.226/
 
-## File Structure
+You can sign up and view the student/user side of the application, feel free to explore!
 
+The admin side of the application is only accessible to authorized staff and senior design groups. 
 
+Please visit https://seniord.cs.iastate.edu/2026-March-16/ for detailed reports and demos of the final app. 
 
-## Visuals/Graphs
-
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+The Final Report showcases an overview of the project, design, work completed, results, and the appendix. Thank you!
