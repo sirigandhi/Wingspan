@@ -1,12 +1,4 @@
-# ug_fs_3
-
-## Project Name
-Wingspan
-
-## Team Members
-Backend Team: Abby Van Der Brink & Taylor Bauer
-
-Frontend Team: Siri Gandhi & Lexi Pachonphai
+# WINGSPAN
 
 ## Project Overview
 Wingspan is a centralized image library and REST API built for Reiman Gardens at Iowa State
@@ -30,3 +22,9 @@ The admin side of the application is only accessible to authorized staff and sen
 Please visit https://seniord.cs.iastate.edu/2026-March-16/ for detailed reports and demos of the final app. 
 
 The Final Report showcases an overview of the project, design, work completed, results, and the appendix. Thank you!
+
+## Team Members
+Siri Gandhi
+Lexi Pachonphai
+Abby Van Der Brink
+Taylor Bauer
