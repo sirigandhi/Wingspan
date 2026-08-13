@@ -12,20 +12,24 @@ Wingspan solves this by providing a single hosted platform where Nathan Brockman
 Gardens uploads and manages butterfly and insect photos through an admin dashboard. Student
 teams access that content through API keys tied to their project and semester.
 
-## Access
-Wingspan is up at http://159.203.134.226/
+## Tech Stack  
+Backend: Java Spring Boot 3.2.1, Maven, package fs3.wingspan
+Frontend: Vite, Handlebars, TypeScript, Bootstrap 5
+Database: PostgreSQL on DigitalOcean
+File Storage: DigitalOcean Spaces (S3 compatible)
+Server: DigitalOcean Droplet
 
-You can sign up and view the student/user side of the application, feel free to explore!
+## Access / Documentation
+Wingspan is up at http://159.203.134.226/ 
 
-The admin side of the application is only accessible to authorized staff and senior design groups. 
+The application is only accessible to authorized staff and senior design groups. Please visit https://seniord.cs.iastate.edu/2026-March-16/ for detailed reports and demos of the final app. 
 
-Please visit https://seniord.cs.iastate.edu/2026-March-16/ for detailed reports and demos of the final app. 
+If you go to Project Artifacts then Final Report, this is a detailed report of an overview of the project, design choices, work completed, results, and the appendix. Progress demos are also v=available under Progress Reports. Thank you!
 
-The Final Report showcases an overview of the project, design, work completed, results, and the appendix. Thank you!
+## To Run Locally
+Required: Java 17, Maven, Node.js and npm, local PostgreSQL instance
 
-## Team Members
+Backend: Create a local application.properties file at src/main/resources/application.properties with your local database credentials and DigitalOcean Spaces credentials from Nathan. Open WingspanApplication in IntelliJ and run.
 
-🪴 Siri Gandhi  
-🦋 Lexi Pachonphai  
-🐙 Abby Van Der Brink  
-✨ Taylor Bauer
+Frontend: cd into the frontend directory, run npm install then npm run dev.
+
