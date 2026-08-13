@@ -24,7 +24,8 @@ Please visit https://seniord.cs.iastate.edu/2026-March-16/ for detailed reports 
 The Final Report showcases an overview of the project, design, work completed, results, and the appendix. Thank you!
 
 ## Team Members
-Siri Gandhi
-Lexi Pachonphai
-Abby Van Der Brink
-Taylor Bauer
+
+🪴 Siri Gandhi  
+🦋 Lexi Pachonphai  
+🐙 Abby Van Der Brink  
+✨ Taylor Bauer
